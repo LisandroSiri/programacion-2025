@@ -26,9 +26,9 @@ CREATE TABLE "pelicula" (
 
 
 
-ALTER TABLE "actor"
-ADD FOREIGN KEY("id") REFERENCES "elenco"("id_actor")
+ALTER TABLE "elenco"
+ADD FOREIGN KEY("id_actor") REFERENCES "actor"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "pelicula"
-ADD FOREIGN KEY("id") REFERENCES "elenco"("id_pelicula")
+ALTER TABLE "elenco"
+ADD FOREIGN KEY("id_pelicula") REFERENCES "pelicula"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;

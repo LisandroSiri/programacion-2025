@@ -52,18 +52,22 @@ CREATE TABLE "pedido" (
 
 
 
+ALTER TABLE "detalle_pedido"
+ADD FOREIGN KEY("id_pedido") REFERENCES "pedido"("id")
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
+ALTER TABLE "detalle_pedido"
+ADD FOREIGN KEY("id_item") REFERENCES "items"("id")
+ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE "pedido"
-ADD FOREIGN KEY("id") REFERENCES "detalle_pedido"("id_pedido")
+ADD FOREIGN KEY("id_cliente") REFERENCES "cliente"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
+
 ALTER TABLE "items"
-ADD FOREIGN KEY("id") REFERENCES "detalle_pedido"("id_item")
+ADD FOREIGN KEY("id_categoria") REFERENCES "categorias"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "cliente"
-ADD FOREIGN KEY("id") REFERENCES "pedido"("id_cliente")
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "categorias"
-ADD FOREIGN KEY("id") REFERENCES "items"("id_categoria")
-ON UPDATE NO ACTION ON DELETE NO ACTION;
-ALTER TABLE "items"
-ADD FOREIGN KEY("precio") REFERENCES "detalle_pedido"("precio_unitario")
+
+ALTER TABLE "detalle_pedido"
+ADD FOREIGN KEY("precio_unitario") REFERENCES "items"("precio")
 ON UPDATE NO ACTION ON DELETE NO ACTION;

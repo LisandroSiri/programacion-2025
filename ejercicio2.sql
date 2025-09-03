@@ -19,6 +19,6 @@ CREATE TABLE "usuario" (
 
 
 
-ALTER TABLE "usuario"
-ADD FOREIGN KEY("id") REFERENCES "publicacion"("id_usuario")
+ALTER TABLE "publicacion"
+ADD FOREIGN KEY("id_usuario") REFERENCES "usuario"("id")
 ON UPDATE NO ACTION ON DELETE NO ACTION;
